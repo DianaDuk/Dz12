@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+  
+</head>
+<body>
+
+    
+    <div id="todo-container">
+        <div class="group">
+            <input type="text" id="field1" placeholder="Введіть нове завдання">
+            <button id="add">Додати</button>
+        </div>
+        <ul id="task-list"></ul>
+    </div>
+    
+    <script>
+       
+       function Press(){
+        const taskText = document.getElementById('field1').value.trim()
+
+        if(taskText !== ""){
+            const taskList = document.getElementById('task-list');
+            const newTask = document.createElement('li');
+            newTask.textContent = taskText;
+           
+            const Delete = document.createElement('button');
+            Delete.textContent = 'Видалити';
+            Delete.id = 'bin';
+            Delete.addEventListener('click', function(){
+                newTask.remove();
+            });
+            newTask.appendChild(Delete);
+            taskList.appendChild(newTask);
+            taskText.value = "";
+        }else{
+            alert(`Будь ласка, заповніть поле перед додаванням.`);
+        }
+       } 
+       document.getElementById('add').addEventListener('click', Press);
+
+    </script>
+</body>
+</html>
