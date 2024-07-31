@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+<body>
+      <button id="input">Ввести посилання</button>
+      <button id="move">Перейти за посиланням</button>
+
+      <script>
+        let link = '';
+
+        function Adress() {
+           const InputAd = prompt("Введіть посилання:");
+           if(InputAd){
+            link = InputAd;
+            alert(`Посилання встановлено ${link}`);
+           } else{
+            alert(`Посилання не було введено`);
+           }
+        }
+
+        document.getElementById('input').addEventListener('click', Adress);
+
+        function Redirect(){
+             if(link){
+                window.location.href = link;
+             } else {
+                alert(`Спочатку введіть посилання`);
+             }
+        }
+
+         document.getElementById('move').addEventListener('click', Redirect)
+         
+         
+      </script>
+
+</body>
+</html>
